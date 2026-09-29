@@ -46,7 +46,7 @@ export default function App() {
         onToggleMobileMenu={() => setMobileMenuOpen(true)}
       />
 
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 lg:flex">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 lg:flex">
         <DemoSidebar
           activeId={activeSection}
           onSelectSection={scrollToSection}
@@ -54,7 +54,7 @@ export default function App() {
           onCloseMobile={() => setMobileMenuOpen(false)}
         />
 
-        <main className="flex-1 min-w-0 py-6 lg:py-8 lg:pl-10">
+        <main className="flex-1 min-w-0 py-6 lg:py-8 lg:pl-6">
           <HeroSection />
           <PlaygroundSection />
           <InstallationSection />

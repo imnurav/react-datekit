@@ -20,9 +20,16 @@ export const PlaygroundSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
 
   const today = new Date();
-  const todayPlus7 = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+  const todayPlus7 = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate() + 7,
+  );
   const [singleVal, setSingleVal] = useState<Date | null>(today);
-  const [rangeVal, setRangeVal] = useState<DateRange | null>([today, todayPlus7]);
+  const [rangeVal, setRangeVal] = useState<DateRange | null>([
+    today,
+    todayPlus7,
+  ]);
   const [dtVal, setDtVal] = useState<Date | null>(
     new Date(today.getFullYear(), today.getMonth(), today.getDate(), 10, 30),
   );
@@ -145,22 +152,22 @@ export const PlaygroundSection: React.FC = () => {
           </div>
           {/* Presets placement control */}
           <div className="flex items-center gap-1 bg-slate-200/60 dark:bg-slate-800/80 p-0.5 rounded-lg text-xs font-medium">
-              {(["none", "left", "top", "bottom"] as const).map((pos) => (
-                <button
-                  key={pos}
-                  type="button"
-                  onClick={() => setPresetsPlacement(pos)}
-                  className={`px-2 py-1 rounded-md capitalize transition cursor-pointer font-medium ${presetsPlacement === pos ? "text-white shadow-sm font-semibold" : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"}`}
-                  style={
-                    presetsPlacement === pos
-                      ? { backgroundColor: "var(--rdk-primary)" }
-                      : {}
-                  }
-                >
-                  {pos === "none" ? "No Presets" : `Presets ${pos}`}
-                </button>
-              ))}
-            </div>
+            {(["none", "left", "top", "bottom"] as const).map((pos) => (
+              <button
+                key={pos}
+                type="button"
+                onClick={() => setPresetsPlacement(pos)}
+                className={`px-2 py-1 rounded-md capitalize transition cursor-pointer font-medium ${presetsPlacement === pos ? "text-white shadow-sm font-semibold" : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"}`}
+                style={
+                  presetsPlacement === pos
+                    ? { backgroundColor: "var(--rdk-primary)" }
+                    : {}
+                }
+              >
+                {pos === "none" ? "No Presets" : `Presets ${pos}`}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Secondary options row */}
@@ -243,8 +250,11 @@ export const PlaygroundSection: React.FC = () => {
 
         {/* Content Box */}
         {activeTab === "preview" ? (
-          <div className="p-4 sm:p-8 flex flex-col items-center justify-center min-h-[380px] bg-slate-50/30 dark:bg-slate-900/20 overflow-x-auto">
-            <div className="w-full flex justify-center">
+          <div className="p-4 sm:p-8 min-h-[380px] bg-slate-50/30 dark:bg-slate-900/20 overflow-x-auto">
+            <div
+              className="flex flex-col items-center justify-center min-h-[340px] gap-4"
+              style={{ width: "max-content", minWidth: "100%" }}
+            >
               <DatePicker
                 key={`${mode}-${months}-${presetsPlacement}-${timePlacement}-${timeFormat}`}
                 {...({
@@ -286,6 +296,31 @@ export const PlaygroundSection: React.FC = () => {
                   showWeekNumbers,
                 } as any)}
               />
+              {mode === "range" && rangeVal && (
+                <div className="flex items-center gap-3 px-5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono">
+                  <span className="text-slate-500 dark:text-slate-400">From</span>
+                  <span className="font-bold text-slate-900 dark:text-white">
+                    {rangeVal[0]
+                      ? rangeVal[0].toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                        })
+                      : "None"}
+                  </span>
+                  <span className="text-slate-300 dark:text-slate-600">→</span>
+                  <span className="text-slate-500 dark:text-slate-400">To</span>
+                  <span className="font-bold text-slate-900 dark:text-white">
+                    {rangeVal[1]
+                      ? rangeVal[1].toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                        })
+                      : "None"}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         ) : (

@@ -17,7 +17,7 @@ export const RangeDemosSection: React.FC = () => {
     "left" | "top" | "bottom" | "hidden"
   >("left");
   const [stackRangeMonths, setStackRangeMonths] = useState<boolean | undefined>(undefined);
-  const [presetMonths, setPresetMonths] = useState<1 | 2>(1);
+  const [presetMonths, setPresetMonths] = useState<1 | 2>(2);
 
   const rangeCode = `import React, { useState } from 'react';
 import { DatePicker, DateRange } from 'react-datekit';
@@ -134,20 +134,16 @@ export default function PresetsRangeDemo() {
             numberOfMonths={2}
             stackMonths={stackRangeMonths}
           />
-          <div className="flex items-center gap-6 px-5 py-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-xs sm:text-sm font-mono border border-zinc-200 dark:border-zinc-700">
-            <div>
-              <span className="text-zinc-500 dark:text-zinc-400">Start: </span>
-              <span className="font-bold text-zinc-900 dark:text-white">
-                {formatDate(range?.[0] ?? null)}
-              </span>
-            </div>
-            <span className="text-zinc-300 dark:text-zinc-600">&rarr;</span>
-            <div>
-              <span className="text-zinc-500 dark:text-zinc-400">End: </span>
-              <span className="font-bold text-zinc-900 dark:text-white">
-                {formatDate(range?.[1] ?? null)}
-              </span>
-            </div>
+          <div className="flex items-center gap-3 px-5 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-xs sm:text-sm font-mono border border-zinc-200 dark:border-zinc-700">
+            <span className="text-zinc-500 dark:text-zinc-400">From</span>
+            <span className="font-bold text-zinc-900 dark:text-white">
+              {formatDate(range?.[0] ?? null)}
+            </span>
+            <span className="text-zinc-300 dark:text-zinc-600">→</span>
+            <span className="text-zinc-500 dark:text-zinc-400">To</span>
+            <span className="font-bold text-zinc-900 dark:text-white">
+              {formatDate(range?.[1] ?? null)}
+            </span>
           </div>
         </div>
       </DemoCard>
@@ -230,6 +226,20 @@ export default function PresetsRangeDemo() {
               presetPlacement === "hidden" ? "auto" : presetPlacement
             }
           />
+          {/* From → To display */}
+          {presetRange && (
+            <div className="flex items-center gap-3 px-5 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-xs font-mono">
+              <span className="text-zinc-500 dark:text-zinc-400">From</span>
+              <span className="font-bold text-zinc-900 dark:text-white">
+                {formatDate(presetRange[0] ?? null)}
+              </span>
+              <span className="text-zinc-300 dark:text-zinc-600">→</span>
+              <span className="text-zinc-500 dark:text-zinc-400">To</span>
+              <span className="font-bold text-zinc-900 dark:text-white">
+                {formatDate(presetRange[1] ?? null)}
+              </span>
+            </div>
+          )}
         </div>
       </DemoCard>
     </div>

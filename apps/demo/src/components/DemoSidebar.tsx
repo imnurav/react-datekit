@@ -57,7 +57,7 @@ export const DemoSidebar: React.FC<DemoSidebarProps> = ({
   return (
     <>
       {/* Desktop Sticky Sidebar */}
-      <aside className="hidden lg:block w-60 shrink-0 py-8 pr-6 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
+      <aside className="hidden lg:block w-52 shrink-0 py-8 pr-4 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
         {content}
       </aside>
 

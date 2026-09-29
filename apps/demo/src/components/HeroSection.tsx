@@ -1,10 +1,9 @@
-import { DatePicker, DateRange } from "react-datekit";
+import { DatePicker } from "react-datekit";
 import React, { useState } from "react";
 
 export const HeroSection: React.FC = () => {
   const today = new Date();
-  const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 7);
-  const [range, setRange] = useState<DateRange | null>([today, nextMonth]);
+  const [date, setDate] = useState<Date | null>(today);
   const [activePkg, setActivePkg] = useState<"pnpm" | "npm" | "yarn" | "bun">(
     "pnpm",
   );
@@ -32,8 +31,8 @@ export const HeroSection: React.FC = () => {
       id="introduction"
       className="pt-6 pb-16 border-b border-zinc-200 dark:border-zinc-800"
     >
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-        <div className="flex-1 max-w-2xl text-center lg:text-left">
+      <div className="flex flex-col xl:flex-row items-center justify-between gap-10">
+        <div className="flex-1 max-w-2xl text-center xl:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-zinc-100 dark:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 mb-6">
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
             <span>
@@ -128,17 +127,12 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Live Hero DatePicker Preview */}
-        <div className="flex-1 flex justify-center w-full overflow-x-auto">
-          <div className="flex justify-center">
-        <DatePicker
-            mode="range"
-            value={range}
-            onChange={setRange}
-            numberOfMonths={1}
-            presets={["today", "last7Days", "thisMonth", "last30Days"]}
+        <div className="flex justify-center w-full xl:w-auto">
+          <DatePicker
+            mode="single"
+            value={date}
+            onChange={setDate}
           />
-          </div>
         </div>
       </div>
 

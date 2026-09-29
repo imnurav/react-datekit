@@ -33,7 +33,11 @@ export function useCalendarView({
       if (mode === "range" && Array.isArray(initialValue) && initialValue[0]) {
         return initialValue[0];
       }
-      if (mode === "multiple" && Array.isArray(initialValue) && initialValue[0]) {
+      if (
+        mode === "multiple" &&
+        Array.isArray(initialValue) &&
+        initialValue[0]
+      ) {
         return initialValue[0];
       }
       if (initialValue instanceof Date) {
@@ -47,9 +51,17 @@ export function useCalendarView({
 
   // rightViewDate tracks the RIGHT month independently.
   // Constraint: always >= 1 month ahead of viewDate (left month).
-  const [rightViewDate, setRightViewDateState] = useState<Date>(() =>
-    addMonths(initialViewDate, 1),
-  );
+  const [rightViewDate, setRightViewDateState] = useState<Date>(() => {
+    if (
+      mode === "range" &&
+      Array.isArray(initialValue) &&
+      initialValue[1] instanceof Date &&
+      monthOrd(initialValue[1]) > monthOrd(initialViewDate)
+    ) {
+      return initialValue[1];
+    }
+    return addMonths(initialViewDate, 1);
+  });
 
   const [focusedDate, setFocusedDateState] = useState<Date>(() =>
     startOfDay(initialViewDate),
@@ -69,6 +81,21 @@ export function useCalendarView({
     (newDate: Date) => {
       setViewDateState(newDate);
       onMonthChange?.(newDate);
+    },
+    [onMonthChange],
+  );
+
+  const setRightViewDate = useCallback((newDate: Date) => {
+    setRightViewDateState(newDate);
+  }, []);
+
+  const setDualViewDates = useCallback(
+    (left: Date, right?: Date) => {
+      setViewDateState(left);
+      onMonthChange?.(left);
+      if (right && monthOrd(right) > monthOrd(left))
+        setRightViewDateState(right);
+      else setRightViewDateState(addMonths(left, 1));
     },
     [onMonthChange],
   );
@@ -138,6 +165,8 @@ export function useCalendarView({
     viewDate,
     setViewDate,
     rightViewDate,
+    setRightViewDate,
+    setDualViewDates,
     viewMode,
     setViewMode,
     focusedDate,

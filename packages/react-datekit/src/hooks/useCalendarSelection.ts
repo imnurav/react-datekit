@@ -27,7 +27,7 @@ export interface UseCalendarSelectionProps {
   onApply?: (val: unknown) => void;
   onCancel?: () => void;
   onClear?: () => void;
-  onViewDateChange?: (date: Date) => void;
+  onViewDateChange?: (date: Date, endDate?: Date) => void;
 }
 
 export function useCalendarSelection({
@@ -206,7 +206,7 @@ export function useCalendarSelection({
     (presetRange: DateRange | Date) => {
       if (Array.isArray(presetRange)) {
         const [start, end] = presetRange;
-        if (start) onViewDateChange?.(start);
+        if (start) onViewDateChange?.(start, end ?? undefined);
         setIsSelectingRange(false);
         setRangeHoverDate(null);
         if (showActions) setStagedValue([start, end]);

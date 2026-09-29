@@ -25,7 +25,7 @@ export const DemoCard: React.FC<DemoCardProps> = ({
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
 
   return (
-    <section id={id} className="scroll-mt-24 mb-14">
+    <section id={id} className="scroll-mt-24 mb-14 max-w-full">
       <div className="flex flex-col gap-1.5 mb-3.5">
         <div className="flex items-center gap-2.5">
           <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-white">
@@ -42,7 +42,7 @@ export const DemoCard: React.FC<DemoCardProps> = ({
         </p>
       </div>
 
-      <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/70 shadow-sm overflow-hidden">
+      <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/70 shadow-sm overflow-hidden max-w-full">
         {/* Card Tabs Bar */}
         <div className="flex items-center justify-between px-3.5 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-950/50">
           <div className="flex items-center gap-1 bg-zinc-200/60 dark:bg-zinc-800/80 p-0.5 rounded-lg text-xs font-medium">
@@ -78,8 +78,13 @@ export const DemoCard: React.FC<DemoCardProps> = ({
 
         {/* Tab Content */}
         {activeTab === "preview" ? (
-          <div className="p-4 sm:p-8 flex flex-col items-center justify-center min-h-[260px] bg-zinc-50/30 dark:bg-zinc-900/30 overflow-x-auto max-w-full">
-            {children}
+          <div className="p-4 sm:p-8 min-h-[260px] bg-zinc-50/30 dark:bg-zinc-900/30 overflow-x-auto">
+            <div
+              className="flex flex-col items-center justify-center min-h-[200px]"
+              style={{ width: "max-content", minWidth: "100%" }}
+            >
+              {children}
+            </div>
           </div>
         ) : (
           <div className="p-4 sm:p-5 bg-zinc-950">

@@ -58,7 +58,7 @@ export function useCalendarState(props: UseCalendarStateProps) {
   const selection = useCalendarSelection({
     ...props,
     time,
-    onViewDateChange: view.setViewDate,
+    onViewDateChange: view.setDualViewDates,
   });
 
   const handleTimeChange = useCallback(
