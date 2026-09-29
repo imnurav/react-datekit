@@ -1,0 +1,63 @@
+/* React DateKit - Action Footer Styles */
+
+.rdk-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-top: 1px solid var(--rdk-border);
+  background-color: var(--rdk-background);
+  gap: 12px;
+}
+
+.rdk-footer-info {
+  font-size: 13px;
+  color: var(--rdk-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rdk-footer-summary {
+  font-weight: 500;
+  color: var(--rdk-text);
+}
+
+.rdk-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rdk-btn {
+  appearance: none;
+  border: 1px solid var(--rdk-border);
+  background-color: var(--rdk-surface);
+  color: var(--rdk-text);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--rdk-transition);
+}
+
+.rdk-btn:hover:not(:disabled) {
+  background-color: var(--rdk-hover);
+}
+
+.rdk-btn--apply {
+  background-color: var(--rdk-primary);
+  border-color: var(--rdk-primary);
+  color: var(--rdk-primary-text);
+  font-weight: 600;
+}
+
+.rdk-btn--apply:hover:not(:disabled) {
+  background-color: var(--rdk-primary-hover);
+}
+
+.rdk-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

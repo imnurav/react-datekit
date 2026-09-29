@@ -1,0 +1,163 @@
+/* React DateKit — DatePicker (Trigger Input + Popover Panel) */
+
+/* ── Wrapper ────────────────────────────────────────────────────── */
+
+.rdk-input-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--rdk-font);
+  box-sizing: border-box;
+}
+
+.rdk-input-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--rdk-text);
+  line-height: 1;
+}
+
+/* ── Trigger ────────────────────────────────────────────────────── */
+
+.rdk-input-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--rdk-surface);
+  border: 1px solid var(--rdk-border);
+  border-radius: 8px;
+  color: var(--rdk-text);
+  cursor: pointer;
+  transition: var(--rdk-transition);
+  user-select: none;
+  box-sizing: border-box;
+  min-width: 220px;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.rdk-input-trigger--sm { height: 34px; padding: 0 12px; font-size: 13px; }
+.rdk-input-trigger--md { height: 42px; padding: 0 14px; font-size: 14px; }
+.rdk-input-trigger--lg { height: 48px; padding: 0 16px; font-size: 15px; }
+
+.rdk-input-trigger:hover:not(.rdk-input-trigger--disabled) {
+  border-color: #cbd5e1;
+}
+
+.dark .rdk-input-trigger:hover:not(.rdk-input-trigger--disabled),
+[data-theme="dark"] .rdk-input-trigger:hover:not(.rdk-input-trigger--disabled) {
+  border-color: #475569;
+}
+
+.rdk-input-trigger--open,
+.rdk-input-trigger:focus-visible {
+  border-color: var(--rdk-primary);
+  box-shadow: 0 0 0 3px var(--rdk-focus-ring);
+  outline: none;
+}
+
+.rdk-input-trigger--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--rdk-disabled-bg);
+}
+
+/* ── Text ───────────────────────────────────────────────────────── */
+
+.rdk-input-text {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--rdk-text);
+  font-weight: 450;
+  letter-spacing: -0.01em;
+}
+
+.rdk-input-text--placeholder {
+  color: var(--rdk-text-secondary);
+  font-weight: 400;
+}
+
+/* ── Right controls (clear + calendar/chevron icon) ─────────────── */
+
+.rdk-input-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.rdk-input-clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: transparent;
+  color: var(--rdk-text-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: var(--rdk-transition);
+}
+
+.rdk-input-clear-btn:hover {
+  background-color: var(--rdk-hover);
+  color: var(--rdk-text);
+}
+
+.rdk-input-icon {
+  display: flex;
+  align-items: center;
+  color: var(--rdk-text-secondary);
+  transition: color 0.15s;
+}
+
+.rdk-input-trigger--open .rdk-input-icon,
+.rdk-input-trigger:hover:not(.rdk-input-trigger--disabled) .rdk-input-icon {
+  color: var(--rdk-text);
+}
+
+/* ── Panel (popover) ────────────────────────────────────────────── */
+
+.rdk-input-panel {
+  /* positioning is applied via inline style from usePopoverPosition */
+  animation: rdk-panel-in 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rdk-input-panel--top-start,
+.rdk-input-panel--top-end {
+  animation: rdk-panel-in-up 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes rdk-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rdk-panel-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Size variants ──────────────────────────────────────────────── */
+
+.rdk-input-wrapper--sm .rdk-input-label { font-size: 12px; }
+.rdk-input-wrapper--lg .rdk-input-label { font-size: 14px; }

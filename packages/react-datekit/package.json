@@ -1,0 +1,79 @@
+{
+  "name": "react-datekit",
+  "version": "0.0.1",
+  "description": "A modern, responsive React date and time picker with single date, range, multiple selection, presets, responsive layouts, and time selection.",
+  "homepage": "https://imnurav.github.io/react-datekit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imnurav/react-datekit.git"
+  },
+  "author": "Nurav",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "date-picker",
+    "datepicker",
+    "date-range-picker",
+    "datetime-picker",
+    "react-datepicker",
+    "calendar",
+    "date",
+    "time-picker",
+    "range-picker"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter react-datekit-demo dev",
+    "demo": "pnpm --filter react-datekit-demo dev",
+    "demo:build": "pnpm --filter react-datekit-demo build",
+    "demo:preview": "pnpm --filter react-datekit-demo preview",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": false
+    },
+    "react-dom": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "26.6.3",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "jsdom": "30.1.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "tailwindcss": "^4.3.3",
+    "tsup": "8.5.1",
+    "typescript": "~5.7.3",
+    "vite": "8.3.1",
+    "vitest": "5.0.2"
+  }
+}

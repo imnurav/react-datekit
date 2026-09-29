@@ -1,0 +1,199 @@
+/* React DateKit - Calendar Grid & Continuous Range Styles */
+
+.rdk-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rdk-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rdk-weekdays--with-weeknum {
+  grid-template-columns: 28px repeat(7, 1fr);
+}
+
+.rdk-weekday {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--rdk-text-secondary);
+  text-align: center;
+}
+
+.rdk-weeknum {
+  font-size: 10px;
+  color: var(--rdk-disabled);
+}
+
+.rdk-days {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rdk-week-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.rdk-week-row--with-weeknum {
+  grid-template-columns: 28px repeat(7, 1fr);
+}
+
+.rdk-weeknum-cell {
+  height: var(--rdk-cell-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--rdk-disabled);
+  font-variant-numeric: tabular-nums;
+}
+
+.rdk-cell {
+  position: relative;
+  height: var(--rdk-cell-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Range connector visual background bar */
+.rdk-connector {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 0;
+  right: 0;
+  background-color: var(--rdk-range);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.rdk-cell--range-hover .rdk-connector {
+  background-color: var(--rdk-range-hover);
+}
+
+.rdk-cell--range-start .rdk-connector {
+  left: 50%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.rdk-cell--range-end .rdk-connector {
+  right: 50%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.rdk-cell--range-same-day .rdk-connector {
+  display: none;
+}
+
+.rdk-cell--row-start.rdk-cell--in-range .rdk-connector,
+.rdk-cell--row-start.rdk-cell--range-hover .rdk-connector {
+  border-top-left-radius: var(--rdk-cell-radius);
+  border-bottom-left-radius: var(--rdk-cell-radius);
+}
+
+.rdk-cell--row-end.rdk-cell--in-range .rdk-connector,
+.rdk-cell--row-end.rdk-cell--range-hover .rdk-connector {
+  border-top-right-radius: var(--rdk-cell-radius);
+  border-bottom-right-radius: var(--rdk-cell-radius);
+}
+
+/* Date cell button */
+.rdk-cell-btn {
+  position: relative;
+  z-index: 2;
+  /* Scale with 1fr column: grows from 32px to 44px max */
+  width: clamp(32px, calc(100% - 4px), 44px);
+  height: clamp(32px, calc(var(--rdk-cell-size) - 4px), 44px);
+  border-radius: var(--rdk-cell-radius);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--rdk-text);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--rdk-transition);
+  font-variant-numeric: tabular-nums;
+  outline: none;
+}
+
+.rdk-cell-btn:focus-visible {
+  box-shadow: 0 0 0 2px var(--rdk-background), 0 0 0 4px var(--rdk-focus-ring);
+}
+
+.rdk-cell-btn:hover:not(:disabled) {
+  background-color: var(--rdk-hover);
+}
+
+.rdk-cell--outside .rdk-cell-btn {
+  color: var(--rdk-disabled);
+}
+
+.rdk-cell--today .rdk-cell-btn {
+  font-weight: 700;
+}
+
+.rdk-today-dot {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--rdk-today-dot);
+  pointer-events: none;
+}
+
+.rdk-cell--selected .rdk-cell-btn,
+.rdk-cell--range-start .rdk-cell-btn,
+.rdk-cell--range-end .rdk-cell-btn {
+  background-color: var(--rdk-selected) !important;
+  color: var(--rdk-primary-text) !important;
+  font-weight: 600;
+  border-radius: var(--rdk-cell-radius);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);
+}
+
+.rdk-cell--selected .rdk-today-dot,
+.rdk-cell--range-start .rdk-today-dot,
+.rdk-cell--range-end .rdk-today-dot {
+  background-color: #ffffff;
+}
+
+.rdk-cell--in-range:not(.rdk-cell--range-start):not(.rdk-cell--range-end) .rdk-cell-btn {
+  color: var(--rdk-range-text);
+  font-weight: 500;
+}
+
+.rdk-cell--disabled .rdk-cell-btn {
+  color: var(--rdk-disabled);
+  background-color: transparent !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+}

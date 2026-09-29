@@ -1,0 +1,64 @@
+/* React DateKit - Month & Year Quick Jump Pickers */
+
+.rdk-picker-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.rdk-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 8px 0;
+  width: 100%;
+}
+
+.rdk-picker-item {
+  appearance: none;
+  border: 1px solid var(--rdk-border);
+  background-color: var(--rdk-surface-alt);
+  color: var(--rdk-text);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 14px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--rdk-transition);
+  text-align: center;
+}
+
+.rdk-picker-item:hover:not(:disabled) {
+  background-color: var(--rdk-hover);
+  border-color: var(--rdk-primary);
+  color: var(--rdk-primary);
+}
+
+.rdk-picker-item:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.rdk-picker-item--selected {
+  background-color: var(--rdk-primary) !important;
+  color: var(--rdk-primary-text) !important;
+  border-color: var(--rdk-primary) !important;
+  font-weight: 600;
+}
+
+.rdk-year-picker {
+  display: flex;
+  flex-direction: column;
+}
+
+.rdk-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.rdk-picker-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--rdk-text);
+}

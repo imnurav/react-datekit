@@ -1,0 +1,233 @@
+/* React DateKit – Time Selector */
+
+/* ── Layout wrappers ───────────────────────────────────────────── */
+
+.rdk-datepicker-views--time-right {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0;
+  gap: 0;
+}
+
+.rdk-datepicker-views--time-right .rdk-datepicker-grid-container {
+  padding: 16px;
+}
+
+.rdk-datepicker-views--time-bottom {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 0;
+}
+
+/* ── Base time panel ───────────────────────────────────────────── */
+
+.rdk-time {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--rdk-surface-alt);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* ── Right-docked ──────────────────────────────────────────────── */
+
+.rdk-time--right {
+  border-left: 1px solid var(--rdk-border);
+  padding: 14px 12px;
+  width: auto;
+  min-width: 158px;
+  gap: 10px;
+  align-items: center;
+}
+
+.rdk-time--right .rdk-time-col-scroll {
+  max-height: 230px;
+}
+
+/* ── Bottom-docked ─────────────────────────────────────────────── */
+
+.rdk-time--bottom {
+  border-top: 1px solid var(--rdk-border);
+  padding: 10px 16px;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.rdk-time--bottom .rdk-time-header {
+  order: -1;
+}
+
+.rdk-time--bottom .rdk-time-ampm-segmented {
+  width: auto;
+  min-width: 68px;
+}
+
+.rdk-time--bottom .rdk-time-columns {
+  flex: 1;
+  min-width: 0;
+  gap: 6px;
+}
+
+.rdk-time--bottom .rdk-time-col-scroll {
+  max-height: 120px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 2px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 2px;
+}
+
+.rdk-time--bottom .rdk-time-col {
+  min-width: 50px;
+}
+
+/* ── Time preview header ───────────────────────────────────────── */
+
+.rdk-time-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background-color: var(--rdk-surface);
+  border: 1px solid var(--rdk-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--rdk-primary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.rdk-time-header svg {
+  width: 14px;
+  height: 14px;
+  color: var(--rdk-primary);
+  flex-shrink: 0;
+}
+
+/* ── AM/PM segmented control ───────────────────────────────────── */
+
+.rdk-time-ampm-segmented {
+  display: flex;
+  padding: 2px;
+  background-color: var(--rdk-hover);
+  border-radius: 8px;
+  width: 100%;
+  gap: 2px;
+  box-sizing: border-box;
+}
+
+.rdk-time-ampm-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 4px 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--rdk-text-secondary);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--rdk-transition);
+  text-align: center;
+}
+
+.rdk-time-ampm-btn:hover {
+  color: var(--rdk-text);
+}
+
+.rdk-time-ampm-btn--active {
+  background-color: var(--rdk-surface) !important;
+  color: var(--rdk-primary) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Column layout ─────────────────────────────────────────────── */
+
+.rdk-time-columns {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+}
+
+.rdk-time-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 44px;
+}
+
+.rdk-time-col-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--rdk-text-secondary);
+  margin-bottom: 6px;
+}
+
+.rdk-time-col-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-height: 140px;
+  overflow-y: auto;
+  padding: 2px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  width: 100%;
+  align-items: center;
+}
+
+.rdk-time-col-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Time cell button ──────────────────────────────────────────── */
+
+.rdk-time-cell {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--rdk-text);
+  font-size: 13px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  width: 42px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: var(--rdk-transition);
+  outline: none;
+}
+
+.rdk-time-cell:hover:not(:disabled) {
+  background-color: var(--rdk-hover);
+}
+
+.rdk-time-cell--selected {
+  background-color: var(--rdk-primary) !important;
+  color: var(--rdk-primary-text) !important;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+}
+
+.rdk-time-cell:disabled {
+  color: var(--rdk-disabled);
+  cursor: not-allowed;
+  opacity: 0.5;
+}

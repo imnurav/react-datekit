@@ -1,0 +1,105 @@
+/* React DateKit - Base Container Styles */
+
+.rdk-datepicker {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: var(--rdk-background);
+  color: var(--rdk-text);
+  font-family: var(--rdk-font);
+  border: 1px solid var(--rdk-border);
+  border-radius: var(--rdk-radius);
+  box-shadow: var(--rdk-shadow);
+  user-select: none;
+  box-sizing: border-box;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.rdk-datepicker *,
+.rdk-datepicker *::before,
+.rdk-datepicker *::after {
+  box-sizing: border-box;
+}
+
+.rdk-datepicker button {
+  cursor: pointer;
+}
+
+.rdk-datepicker button:disabled,
+.rdk-datepicker [aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.rdk-datepicker-body {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.rdk-datepicker-views {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.rdk-datepicker-grid-container {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.rdk-datepicker-months {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Divider between side-by-side months */
+.rdk-datepicker-month-col + .rdk-datepicker-month-col {
+  border-left: 1px solid var(--rdk-border);
+  padding-left: 20px;
+  margin-left: 4px;
+}
+
+/* No divider in stacked mode */
+.rdk-datepicker-months--stacked
+  .rdk-datepicker-month-col
+  + .rdk-datepicker-month-col {
+  border-left: none;
+  padding-left: 0;
+  margin-left: 0;
+  border-top: 1px solid var(--rdk-border);
+  padding-top: 20px;
+  margin-top: 0;
+}
+
+.rdk-datepicker-month-col {
+  display: flex;
+  flex-direction: column;
+  /* Cap at exactly 7 cell-widths — same density in single and dual view */
+  width: calc(var(--rdk-cell-size) * 7);
+  max-width: 100%;
+  min-width: 0;
+}
+
+.rdk-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

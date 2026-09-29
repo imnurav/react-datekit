@@ -1,0 +1,19 @@
+{
+  "name": "npm-packges-monorepo",
+  "private": true,
+  "description": "Monorepo containing React component libraries and tools",
+  "scripts": {
+    "dev": "pnpm --filter react-datekit-demo dev",
+    "demo": "pnpm --filter react-datekit-demo dev",
+    "demo:build": "pnpm --filter react-datekit-demo build",
+    "demo:preview": "pnpm --filter react-datekit-demo preview",
+    "build": "pnpm --filter react-datekit build",
+    "test": "pnpm --filter react-datekit test",
+    "typecheck": "pnpm --filter react-datekit typecheck"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "26.6.3",
+    "typescript": "~5.7.3"
+  }
+}

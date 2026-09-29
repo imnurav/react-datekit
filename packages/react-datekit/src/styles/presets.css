@@ -1,0 +1,102 @@
+/* React DateKit - Presets Styles */
+
+.rdk-presets--desktop {
+  width: 150px;
+  min-width: 150px;
+  border-right: 1px solid var(--rdk-border);
+  background-color: var(--rdk-surface-alt);
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rdk-presets--mobile,
+.rdk-presets--placement-top,
+.rdk-presets--placement-bottom {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--rdk-border);
+  background-color: var(--rdk-surface-alt);
+  padding: 8px 12px;
+}
+
+.rdk-presets--placement-bottom {
+  border-top: 1px solid var(--rdk-border);
+  border-bottom: none;
+}
+
+.rdk-presets--placement-right {
+  width: 150px;
+  min-width: 150px;
+  border-left: 1px solid var(--rdk-border);
+  border-right: none;
+  background-color: var(--rdk-surface-alt);
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rdk-presets--mobile .rdk-presets-list,
+.rdk-presets--placement-top .rdk-presets-list,
+.rdk-presets--placement-bottom .rdk-presets-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  justify-content: flex-start;
+  gap: 6px;
+  padding: 2px 0;
+}
+
+.rdk-presets--mobile .rdk-presets-list::-webkit-scrollbar,
+.rdk-presets--placement-top .rdk-presets-list::-webkit-scrollbar,
+.rdk-presets--placement-bottom .rdk-presets-list::-webkit-scrollbar {
+  display: none;
+}
+
+.rdk-presets--desktop .rdk-presets-list,
+.rdk-presets--placement-left .rdk-presets-list,
+.rdk-presets--placement-right .rdk-presets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rdk-preset-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--rdk-text);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--rdk-transition);
+}
+
+.rdk-preset-btn:hover {
+  background-color: var(--rdk-hover);
+  color: var(--rdk-primary);
+}
+
+.rdk-preset-btn--active {
+  background-color: var(--rdk-primary) !important;
+  color: var(--rdk-primary-text) !important;
+  font-weight: 600;
+}
+
+.rdk-presets--mobile .rdk-preset-btn,
+.rdk-presets--placement-top .rdk-preset-btn,
+.rdk-presets--placement-bottom .rdk-preset-btn {
+  padding: 6px 12px;
+  background-color: var(--rdk-hover);
+  border-radius: 9999px;
+  font-size: 12px;
+}

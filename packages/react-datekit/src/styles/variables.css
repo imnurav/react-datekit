@@ -1,0 +1,62 @@
+/* React DateKit - Design Tokens & CSS Variables */
+
+:root,
+.rdk-datepicker {
+  --rdk-primary: #2563eb;
+  --rdk-primary-hover: #1d4ed8;
+  --rdk-primary-text: #ffffff;
+  --rdk-background: #ffffff;
+  --rdk-surface: #ffffff;
+  --rdk-surface-alt: #f8fafc;
+  --rdk-text: #1f2937;
+  --rdk-text-secondary: #6b7280;
+  --rdk-border: #e5e7eb;
+  --rdk-border-subtle: #f1f5f9;
+  --rdk-hover: #f3f4f6;
+  --rdk-selected: #2563eb;
+  --rdk-range: #eff6ff;
+  --rdk-range-hover: #dbeafe;
+  --rdk-range-text: #1d4ed8;
+  --rdk-disabled: #d1d5db;
+  --rdk-disabled-bg: #f8fafc;
+  --rdk-today-dot: #2563eb;
+  --rdk-focus-ring: rgba(37, 99, 235, 0.35);
+  --rdk-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --rdk-radius: 12px;
+  --rdk-cell-radius: 8px;
+  --rdk-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --rdk-cell-size: 40px;
+  --rdk-transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Theme Support */
+[data-theme="dark"],
+.dark,
+[data-theme="dark"] .rdk-datepicker,
+.dark .rdk-datepicker,
+.rdk-datepicker[data-theme="dark"],
+[data-theme="dark"] .rdk-input-wrapper,
+.dark .rdk-input-wrapper,
+[data-theme="dark"] .rdk-input-panel,
+.dark .rdk-input-panel {
+  --rdk-primary: #3b82f6;
+  --rdk-primary-hover: #60a5fa;
+  --rdk-primary-text: #ffffff;
+  --rdk-background: #0f172a;
+  --rdk-surface: #1e293b;
+  --rdk-surface-alt: #0f172a;
+  --rdk-text: #f8fafc;
+  --rdk-text-secondary: #94a3b8;
+  --rdk-border: #334155;
+  --rdk-border-subtle: #1e293b;
+  --rdk-hover: #334155;
+  --rdk-selected: #3b82f6;
+  --rdk-range: #1e3a8a;
+  --rdk-range-hover: #172554;
+  --rdk-range-text: #93c5fd;
+  --rdk-disabled: #475569;
+  --rdk-disabled-bg: #1e293b;
+  --rdk-today-dot: #60a5fa;
+  --rdk-focus-ring: rgba(96, 165, 250, 0.4);
+  --rdk-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}

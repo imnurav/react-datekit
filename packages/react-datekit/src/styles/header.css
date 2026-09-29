@@ -1,0 +1,84 @@
+/* React DateKit - Header & Navigation Chevrons */
+
+.rdk-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  height: 36px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rdk-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 32px;
+}
+
+.rdk-header-nav--left {
+  justify-content: flex-start;
+}
+
+.rdk-header-nav--right {
+  justify-content: flex-end;
+}
+
+.rdk-header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+  gap: 4px;
+}
+
+.rdk-header-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--rdk-text-secondary);
+  cursor: pointer;
+  transition: var(--rdk-transition);
+}
+
+.rdk-header-btn-icon:hover:not(:disabled) {
+  background-color: var(--rdk-hover);
+  color: var(--rdk-text);
+}
+
+.rdk-header-btn-icon:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.rdk-header-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rdk-header-title-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--rdk-text);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: var(--rdk-transition);
+}
+
+.rdk-header-title-btn:hover {
+  background-color: var(--rdk-hover);
+  color: var(--rdk-primary);
+}
+
