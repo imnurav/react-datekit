@@ -5,7 +5,7 @@
   "homepage": "https://imnurav.github.io/react-datekit",
   "repository": {
     "type": "git",
-    "url": "https://github.com/imnurav/react-datekit.git"
+    "url": "git+https://github.com/imnurav/react-datekit.git"
   },
   "author": "Nurav",
   "license": "MIT",
