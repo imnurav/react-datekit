@@ -26,6 +26,7 @@ export default defineConfig({
       'time-selector.css',
       'footer.css',
       'responsive.css',
+      'input.css',
     ];
 
     const bundledCss = cssFiles

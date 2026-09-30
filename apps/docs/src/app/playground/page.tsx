@@ -5,7 +5,6 @@ import { PlaygroundHeader } from "./components/PlaygroundHeader";
 import { ControlsPanel } from "./components/ControlsPanel";
 import { PreviewCanvas } from "./components/PreviewCanvas";
 import type { DateRange } from "react-datekit";
-import "react-datekit/style.css";
 import {
   PlaygroundPresetPlacement,
   generatePlaygroundCode,
