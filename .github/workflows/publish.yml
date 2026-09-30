@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   publish:
@@ -62,12 +63,10 @@ jobs:
         if: steps.check_version.outputs.version_exists == 'false'
         run: pnpm build
 
-      - name: Publish Package to NPM
+      - name: Publish Package to NPM (Trusted Publishing)
         if: steps.check_version.outputs.version_exists == 'false'
         run: |
           cd packages/react-datekit
-          npm publish --tag ${{ github.event.inputs.tag || 'staging' }} --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.STAGGING_NPM_KEY }}
+          npm publish --stage --provenance --access public
 
 
