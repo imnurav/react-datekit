@@ -19,6 +19,6 @@
     "declaration": true,
     "declarationMap": true
   },
-  "include": ["src", "demo"],
+  "include": ["src", "demo", "tsup.config.ts"],
   "exclude": ["node_modules", "dist"]
 }
