@@ -1,9 +1,9 @@
 /* React DateKit - Header & Navigation Chevrons */
 
 .rdk-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(68px, auto) 1fr minmax(68px, auto);
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 12px;
   height: 36px;
   width: 100%;
@@ -15,6 +15,7 @@
   align-items: center;
   gap: 2px;
   height: 32px;
+  min-width: 68px;
 }
 
 .rdk-header-nav--left {
@@ -29,9 +30,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
   text-align: center;
   gap: 4px;
+  white-space: nowrap;
 }
 
 .rdk-header-btn-icon {
@@ -56,12 +57,6 @@
 .rdk-header-btn-icon:disabled {
   opacity: 0.35;
   cursor: not-allowed;
-}
-
-.rdk-header-title {
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 
 .rdk-header-title-btn {

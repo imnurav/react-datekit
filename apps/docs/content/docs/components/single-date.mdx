@@ -1,0 +1,56 @@
+---
+title: Single Date
+description: Single date selection with inline calendar or floating trigger popover.
+---
+
+# Single Date
+
+The default mode of `<DatePicker />` is `"single"`. It allows the user to select one calendar date.
+
+---
+
+## Inline Mode
+
+Render the calendar panel inline directly into your layout without any trigger input:
+
+```tsx
+import { useState } from 'react';
+import { DatePicker } from 'react-datekit';
+
+export function InlineExample() {
+  const [date, setDate] = useState<Date | null>(new Date());
+
+  return (
+    <DatePicker
+      inline
+      value={date}
+      onChange={setDate}
+    />
+  );
+}
+```
+
+---
+
+## Trigger Popover Mode
+
+When `inline` is not set (or when a `label` or `placeholder` is provided), DatePicker automatically renders as a floating popover attached to an input trigger:
+
+```tsx
+import { useState } from 'react';
+import { DatePicker } from 'react-datekit';
+
+export function PopoverExample() {
+  const [date, setDate] = useState<Date | null>(null);
+
+  return (
+    <DatePicker
+      label="Departure Date"
+      placeholder="Select departure..."
+      value={date}
+      onChange={setDate}
+      allowClear
+    />
+  );
+}
+```

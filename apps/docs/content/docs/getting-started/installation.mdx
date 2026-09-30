@@ -1,0 +1,87 @@
+---
+title: Installation
+description: Install React DateKit into your React or Next.js project.
+---
+
+# Installation & Setup
+
+Install `react-datekit` into your React 18 or React 19 application using your favorite package manager.
+
+---
+
+## Package Manager
+
+```bash
+npm install react-datekit
+```
+
+```bash
+pnpm add react-datekit
+```
+
+```bash
+yarn add react-datekit
+```
+
+```bash
+bun add react-datekit
+```
+
+---
+
+## Import Component & Styles
+
+Import `<DatePicker />` and the compiled CSS file once in your application entry or root layout:
+
+```tsx
+import { DatePicker } from "react-datekit";
+import "react-datekit/style.css";
+```
+
+---
+
+## Next.js Setup (App Router)
+
+Because `DatePicker` handles interactive DOM events, touch gestures, and keyboard navigation, include the `'use client'` directive in App Router components:
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { DatePicker } from 'react-datekit';
+import 'react-datekit/style.css';
+
+export default function BookingPage() {
+  const [date, setDate] = useState<Date | null>(new Date());
+
+  return (
+    <DatePicker
+      value={date}
+      onChange={setDate}
+      placeholder="Select booking date..."
+    />
+  );
+}
+```
+
+---
+
+## Peer Requirements
+
+| Package | Version | Status | Notes |
+| --- | --- | --- | --- |
+| `react` | `>=18.0.0 \|\| >=19.0.0` | Required | React core |
+| `react-dom` | `>=18.0.0 \|\| >=19.0.0` | Required | React DOM renderer |
+| `date-fns / dayjs` | None | None | Zero external date dependencies |
+
+---
+
+## Framework & Bundler Compatibility
+
+| Bundler / Framework | Status | Notes |
+| --- | --- | --- |
+| **Vite** | Supported | Native ESM, zero configuration required |
+| **Next.js (App & Pages)** | Supported | Add `'use client'` in App Router |
+| **Webpack 5** | Supported | Dual ESM & CJS builds |
+| **Remix / React Router 7** | Supported | Full hydration compatibility |
+| **Astro** | Supported | Use `client:load` or `client:idle` |

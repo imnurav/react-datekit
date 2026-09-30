@@ -1,0 +1,30 @@
+---
+title: Multiple Dates
+description: Select multiple non-contiguous dates from a single calendar view.
+---
+
+# Multiple Dates
+
+Set `mode="multiple"` to allow users to select multiple dates independently. The value is typed as `Date[]`.
+
+---
+
+## Example
+
+```tsx
+import { useState } from 'react';
+import { DatePicker } from 'react-datekit';
+
+export function MultipleDatesExample() {
+  const [dates, setDates] = useState<Date[]>([]);
+
+  return (
+    <DatePicker
+      mode="multiple"
+      value={dates}
+      onChange={setDates}
+      placeholder="Select workshop dates..."
+    />
+  );
+}
+```

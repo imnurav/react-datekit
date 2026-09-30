@@ -1,6 +1,6 @@
 {
   "name": "react-datekit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A modern, responsive React date and time picker with single date, range, multiple selection, presets, responsive layouts, and time selection.",
   "homepage": "https://imnurav.github.io/react-datekit",
   "repository": {
@@ -9,6 +9,9 @@
   },
   "author": "Nurav",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "react",
     "date-picker",
@@ -38,10 +41,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "dev": "pnpm --filter react-datekit-demo dev",
-    "demo": "pnpm --filter react-datekit-demo dev",
-    "demo:build": "pnpm --filter react-datekit-demo build",
-    "demo:preview": "pnpm --filter react-datekit-demo preview",
+    "dev": "tsup --watch",
     "build": "tsup",
     "test": "vitest run",
     "test:watch": "vitest",

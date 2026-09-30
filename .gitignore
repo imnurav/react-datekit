@@ -12,6 +12,7 @@ out/
 *.tsbuildinfo
 .turbo/
 .cache/
+.source/
 
 # Test & Coverage
 coverage/

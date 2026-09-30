@@ -11,6 +11,7 @@ import { TimeSelector } from "./TimeSelector";
 import type { DateRange } from "../types";
 import { Presets } from "./Presets";
 import {
+  TIME_COLUMN_WIDTH_WITH_SECONDS,
   PRESETS_SIDEBAR_WIDTH,
   MIN_DUAL_MONTH_WIDTH,
   TIME_COLUMN_WIDTH,
@@ -92,10 +93,14 @@ export const CalendarPanel: React.FC<CalendarPanelProps> = (props: any) => {
     (presetsPlacement === "left" || (presetsPlacement === "auto" && !isMobile));
   const isRightPreset = hasPresets && presetsPlacement === "right";
 
+  const effectiveTimeWidth = showSeconds
+    ? TIME_COLUMN_WIDTH_WITH_SECONDS
+    : TIME_COLUMN_WIDTH;
+
   const minDualMonthWidth =
     MIN_DUAL_MONTH_WIDTH +
     (isLeftPreset || isRightPreset ? PRESETS_SIDEBAR_WIDTH : 0) +
-    (showTime && timePlacement === "right" ? TIME_COLUMN_WIDTH : 0);
+    (showTime && timePlacement === "right" ? effectiveTimeWidth : 0);
 
   const shouldStack =
     stackMonths ??

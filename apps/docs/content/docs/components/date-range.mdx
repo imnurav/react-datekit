@@ -1,0 +1,50 @@
+---
+title: Date Range
+description: Select start and end date ranges with preset shortcuts and multi-month view.
+---
+
+# Date Range
+
+Set `mode="range"` to enable range selection. The component emits `{ start: Date | null, end: Date | null }` objects.
+
+---
+
+## Dual Month Range
+
+```tsx
+import { useState } from 'react';
+import { DatePicker, DateRange } from 'react-datekit';
+
+export function RangeExample() {
+  const [range, setRange] = useState<DateRange>({
+    start: null,
+    end: null,
+  });
+
+  return (
+    <DatePicker
+      mode="range"
+      value={range}
+      onChange={setRange}
+      numberOfMonths={2}
+    />
+  );
+}
+```
+
+---
+
+## Presets with Range
+
+Combine ranges with built-in presets docked to the left, right, or top:
+
+```tsx
+<DatePicker
+  mode="range"
+  value={range}
+  onChange={setRange}
+  presets={['today', 'yesterday', 'last7Days', 'last30Days', 'thisMonth']}
+  presetsPlacement="left"
+  numberOfMonths={2}
+/>
+```

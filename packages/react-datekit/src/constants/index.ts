@@ -15,7 +15,8 @@ export const DEFAULT_DATE_LOCALE_OPTS: Intl.DateTimeFormatOptions = {
  */
 export const MIN_DUAL_MONTH_WIDTH = 617;
 export const PRESETS_SIDEBAR_WIDTH = 160;
-export const TIME_COLUMN_WIDTH = 160;
+export const TIME_COLUMN_WIDTH = 168;
+export const TIME_COLUMN_WIDTH_WITH_SECONDS = 224;
 
 /** Default keyboard navigation day and week offsets */
 export const KEYBOARD_STEP_DAY = 1;

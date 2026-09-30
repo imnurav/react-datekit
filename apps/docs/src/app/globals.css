@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@source "../**/*.{ts,tsx}";
+@source "../../node_modules/fumadocs-ui/dist/**/*.js";
+@source "../../../node_modules/.pnpm/fumadocs-ui*/node_modules/fumadocs-ui/dist/**/*.js";
+@import "fumadocs-ui/style.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+
+  /* DateKit brand theme */
+  --rdk-brand: #2563eb;
+  --rdk-brand-light: #60a5fa;
+  --rdk-brand-dark: #1d4ed8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+.dark,
+[data-theme="dark"] {
+  --background: #09090b;
+  --foreground: #fafafa;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Fix Tailwind v4 removing cursor pointer from buttons natively */
+button,
+[role="button"],
+[role="tab"],
+[role="switch"],
+a,
+summary {
+  cursor: pointer;
+}
+
+/* Landing page gradient animation */
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.rdk-hero-gradient {
+  background: linear-gradient(135deg, #2563eb, #7c3aed, #06b6d4, #2563eb);
+  background-size: 300% 300%;
+  animation: gradient-shift 6s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rdk-card-hover {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.rdk-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15);
+}
+
+/* Playground Custom Split Workspace Layout */
+.playground-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - 3.5rem);
+}
+
+.playground-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.playground-sidebar {
+  width: 100%;
+}
+
+.playground-preview-area {
+  min-width: 0;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  /* On desktop: lock the page height to the viewport, prevent page scrolling */
+  .playground-page-wrapper {
+    height: calc(100vh - 3.5rem);
+    max-height: calc(100vh - 3.5rem);
+    overflow: hidden;
+  }
+
+  .playground-grid {
+    grid-template-columns: 390px minmax(0, 1fr);
+    align-items: stretch;
+    height: calc(100vh - 8.5rem);
+    max-height: calc(100vh - 8.5rem);
+    overflow: hidden;
+  }
+
+  /* Left sidebar: independently scrollable */
+  .playground-sidebar {
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+  }
+
+  /* Right preview: independently scrollable if content overflows */
+  .playground-preview-area {
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+  }
+}
+
+/* Thin sleek scrollbar for config sidebar & preview */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.45);
+}

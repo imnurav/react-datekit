@@ -42,6 +42,10 @@
   align-items: center;
 }
 
+.rdk-time--right.rdk-time--with-seconds {
+  min-width: 216px;
+}
+
 .rdk-time--right .rdk-time-col-scroll {
   max-height: 230px;
 }

@@ -1,0 +1,60 @@
+---
+title: Quick Start
+description: Get up and running with your first DatePicker in 2 minutes.
+---
+
+# Quick Start
+
+Here is a full working example showing how to mount an interactive date picker with quick presets and a custom size.
+
+---
+
+## Controlled Single Date
+
+```tsx
+import { useState } from 'react';
+import { DatePicker } from 'react-datekit';
+import 'react-datekit/style.css';
+
+export default function MyCalendar() {
+  const [selected, setSelected] = useState<Date | null>(new Date());
+
+  return (
+    <div className="p-4 max-w-sm">
+      <DatePicker
+        value={selected}
+        onChange={setSelected}
+        placeholder="Pick an appointment date"
+        allowClear
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Controlled Date Range
+
+```tsx
+import { useState } from 'react';
+import { DatePicker, DateRange } from 'react-datekit';
+import 'react-datekit/style.css';
+
+export default function RangePickerDemo() {
+  const [range, setRange] = useState<DateRange>({
+    start: new Date(),
+    end: new Date(Date.now() + 7 * 86400000),
+  });
+
+  return (
+    <DatePicker
+      mode="range"
+      value={range}
+      onChange={setRange}
+      presets={['today', 'last7Days', 'thisMonth']}
+      numberOfMonths={2}
+    />
+  );
+}
+```

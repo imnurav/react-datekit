@@ -45,8 +45,8 @@ jobs:
       - name: Build Package
         run: pnpm build
 
-      - name: Build Demo App
-        run: GITHUB_PAGES=true pnpm demo:build
+      - name: Build Docs & Playground
+        run: GITHUB_PAGES=true pnpm docs:build
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
@@ -54,7 +54,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: apps/demo/dist
+          path: apps/docs/out
 
       - name: Deploy to GitHub Pages
         id: deployment

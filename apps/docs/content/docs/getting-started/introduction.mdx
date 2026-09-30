@@ -1,0 +1,46 @@
+---
+title: Introduction
+description: Overview of React DateKit, design goals, and package capabilities.
+---
+
+# Introduction
+
+**React DateKit** is a production-ready, framework-first date and time picker library engineered exclusively for modern React (React 18 & 19). It provides unified components that seamlessly adapt between inline calendars, popovers, multi-month ranges, and time selection.
+
+---
+
+## Why React DateKit?
+
+Most React date pickers suffer from one of three problems:
+
+1. **Heavy date runtime dependencies** — Libraries bundling `moment` or `date-fns` inflate your bundle size by 50KB–200KB.
+2. **Fragmented component APIs** — Forcing developers to install different components for single dates, ranges, and time pickers.
+3. **Poor touch & keyboard support** — Lack of proper WAI-ARIA grid navigation and clunky mobile popovers.
+
+React DateKit solves this with **0 runtime dependencies**, relying 100% on native JavaScript `Date` math and cached `Intl.DateTimeFormat` instances.
+
+---
+
+## Feature Matrix
+
+| Feature | Single Date | Date Range | Date & Time | Multiple Dates |
+| --- | :---: | :---: | :---: | :---: |
+| **Inline Calendar Panel** | Yes | Yes | Yes | Yes |
+| **Popover Trigger Dropdown** | Yes | Yes | Yes | Yes |
+| **Time Column (12h / 24h)** | No | No | Yes | No |
+| **Seconds Selector (:ss)** | No | No | Yes | No |
+| **Multi-Month Display (1–4)** | Yes | Yes | No | Yes |
+| **Quick Select Presets** | Yes | Yes | Yes | No |
+| **ISO Week Numbers** | Yes | Yes | Yes | Yes |
+| **Min / Max Bounds** | Yes | Yes | Yes | Yes |
+| **Native Intl i18n & RTL** | Yes | Yes | Yes | Yes |
+| **Full Keyboard ARIA Navigation** | Yes | Yes | Yes | Yes |
+
+---
+
+## Package Architecture
+
+| Package / Export | Purpose | Dependencies |
+| --- | --- | --- |
+| `react-datekit` | Main component, hooks, and TypeScript types | 0 external runtime deps |
+| `react-datekit/style.css` | Pure CSS stylesheet with design tokens | Pure CSS (&lt;25KB) |

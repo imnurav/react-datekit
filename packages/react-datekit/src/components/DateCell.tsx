@@ -1,7 +1,7 @@
 import { getCellAriaLabel } from "../utils/accessibility";
-import type { RenderDateInfo } from "../types";
 import type { DateCellProps } from "../types/internal";
 import { memo, useCallback, useMemo } from "react";
+import type { RenderDateInfo } from "../types";
 
 export const DateCell = memo<DateCellProps>(
   ({
@@ -95,9 +95,9 @@ export const DateCell = memo<DateCellProps>(
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {(isInRange || isRangeHover || isRangeStart || isRangeEnd) && !isOutside && !sameDayRange && (
-          <div className="rdk-connector" aria-hidden="true" />
-        )}
+        {(isInRange || isRangeHover || isRangeStart || isRangeEnd) &&
+          !isOutside &&
+          !sameDayRange && <div className="rdk-connector" aria-hidden="true" />}
 
         <button
           ref={isFocused ? focusedBtnRef : undefined}

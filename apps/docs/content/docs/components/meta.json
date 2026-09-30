@@ -1,0 +1,9 @@
+{
+  "title": "Components",
+  "pages": [
+    "single-date",
+    "date-range",
+    "date-time",
+    "multiple-dates"
+  ]
+}

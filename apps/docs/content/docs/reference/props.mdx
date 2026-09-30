@@ -1,0 +1,63 @@
+---
+title: Props Reference
+description: Complete TypeScript prop definitions for the DatePicker component.
+---
+
+# DatePicker Props
+
+Complete prop options for `<DatePicker />`.
+
+---
+
+## Core Configuration
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `mode` | `'single' \| 'range' \| 'multiple' \| 'month' \| 'year' \| 'datetime'` | `'single'` | Controls selection logic, bounds, and rendered views. |
+| `value` | `Date \| DateRange \| Date[] \| null` | `undefined` | Controlled value corresponding to the current mode. |
+| `defaultValue` | `Date \| DateRange \| Date[] \| null` | `undefined` | Uncontrolled initial value on mount. |
+| `onChange` | `(val: any) => void` | `undefined` | Fires whenever date or time selection changes. |
+| `inline` | `boolean` | `auto` | Forces inline calendar panel without trigger input. |
+| `placeholder` | `string` | `'Select date…'` | Placeholder text inside trigger. |
+| `label` | `string` | `undefined` | Descriptive label above the trigger. |
+| `allowClear` | `boolean` | `true` | Shows quick clear button. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Trigger height and font sizing. |
+| `disabled` | `boolean` | `false` | Disables interactions and styles. |
+
+---
+
+## Calendar & Display
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `numberOfMonths` | `number` | `1` | Number of calendar months rendered side-by-side. |
+| `stackMonths` | `boolean` | `auto` | Forces multi-month view to stack vertically. |
+| `weekStartsOn` | `0 \| 1 \| 2 \| 3 \| 4 \| 5 \| 6` | `0` | First day of week (0=Sunday, 1=Monday). |
+| `showWeekNumbers` | `boolean` | `false` | Renders ISO 8601 week number column. |
+| `renderDate` | `(date: Date) => ReactNode` | `undefined` | Custom cell render callback. |
+
+---
+
+## Time Picker
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `showTime` | `boolean` | `false` | Enables scrollable time selection column. |
+| `timeFormat` | `'12' \| '24'` | `'24'` | 12h (AM/PM) or 24h display format. |
+| `minuteStep` | `number` | `1` | Minute granularity step (e.g. 5, 15). |
+| `showSeconds` | `boolean` | `false` | Dedicated 0–59 seconds selection column. |
+| `timePlacement` | `'right' \| 'bottom'` | `'right'` | Position of the time column. |
+
+---
+
+## Constraints & Localization
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `minDate` | `Date` | `undefined` | Earliest selectable date. |
+| `maxDate` | `Date` | `undefined` | Latest selectable date. |
+| `disableFutureDates` | `boolean` | `false` | Disables dates strictly after today. |
+| `disablePastDates` | `boolean` | `false` | Disables dates strictly before today. |
+| `disabledDate` | `(date: Date) => boolean` | `undefined` | Custom predicate for disabled dates. |
+| `locale` | `string` | `'en-US'` | BCP 47 language tag for native Intl formatting. |
+| `dir` | `'ltr' \| 'rtl' \| 'auto'` | `'ltr'` | Layout directionality for RTL support. |

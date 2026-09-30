@@ -1,0 +1,59 @@
+---
+title: TypeScript Types
+description: Exported TypeScript types and interfaces from react-datekit.
+---
+
+# TypeScript Types
+
+All types are exported directly from the package entrypoint.
+
+---
+
+## Import
+
+```ts
+import type {
+  DatePickerProps,
+  DateRange,
+  DatePickerMode,
+  DatePickerSize,
+  PresetItem,
+  DatePickerLocale,
+} from 'react-datekit';
+```
+
+---
+
+## `DateRange`
+
+```ts
+export interface DateRange {
+  start: Date | null;
+  end: Date | null;
+}
+```
+
+---
+
+## `PresetItem`
+
+```ts
+export interface CustomPreset {
+  label: string;
+  getValue: () => DateRange | Date | Date[];
+}
+
+export type PresetItem =
+  | 'today'
+  | 'yesterday'
+  | 'thisWeek'
+  | 'lastWeek'
+  | 'thisMonth'
+  | 'lastMonth'
+  | 'thisYear'
+  | 'lastYear'
+  | 'last7Days'
+  | 'last30Days'
+  | 'last90Days'
+  | CustomPreset;
+```

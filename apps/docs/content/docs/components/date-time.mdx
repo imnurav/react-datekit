@@ -1,0 +1,48 @@
+---
+title: Date & Time
+description: Integrated scrollable time picker columns for combined datetime selection.
+---
+
+# Date & Time Selection
+
+Set `mode="datetime"` or enable `showTime={true}` to activate the scrollable time selection column beside or below the calendar.
+
+---
+
+## 12-Hour Time Format
+
+```tsx
+import { useState } from 'react';
+import { DatePicker } from 'react-datekit';
+
+export function DateTimeExample() {
+  const [date, setDate] = useState<Date | null>(new Date());
+
+  return (
+    <DatePicker
+      mode="datetime"
+      value={date}
+      onChange={setDate}
+      timeFormat="12"
+      minuteStep={15}
+    />
+  );
+}
+```
+
+---
+
+## Seconds Selection (:ss)
+
+Enable granular seconds selection using `showSeconds`:
+
+```tsx
+<DatePicker
+  mode="datetime"
+  value={date}
+  onChange={setDate}
+  timeFormat="24"
+  showSeconds
+  secondStep={5}
+/>
+```

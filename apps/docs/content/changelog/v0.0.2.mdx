@@ -1,0 +1,30 @@
+---
+title: v0.0.2
+description: Responsive enhancements, time seconds selector, header grid layout, and playground component modularization.
+---
+
+# v0.0.2 Release Notes
+
+_Released: September 2026_
+
+Version `0.0.2` brings important visual stability fixes, time picker enhancements, responsive mobile improvements, and modular architecture.
+
+---
+
+### Highlights & Bug Fixes
+
+- **Fixed Calendar Header Collision** — Converted `.rdk-header` to a balanced CSS Grid layout with fixed symmetric navigation widths (`min-width: 68px`). In dual-month views, month and year headers remain centered and never collide with adjacent month chevrons.
+- **Added Seconds Support in Time Picker** — Added `:ss` seconds selection column with proper layout spacing and `.rdk-time--with-seconds` expansion for 3-column docked time selection (`Hour`, `Min`, `Sec`).
+- **Mobile & Responsive Time Panel** — Enhanced `.rdk-datepicker--mobile` to reset minimum widths on docked time panels, allowing columns to smoothly adapt across mobile viewports without overflowing.
+- **Studio & Playground Modularization** — Decomposed the documentation playground into modular subcomponents (`PlaygroundHeader`, `ControlsPanel`, `PreviewCanvas`) and moved picker modes (`Single`, `Range`, `Date & Time`, `Multiple`) directly into the unified Controls Panel.
+- **Theme Mode Switcher** — Enabled system-wide light/dark theme toggling with Tailwind v4 custom variants.
+
+---
+
+## Upgrade
+
+Install or upgrade via your package manager:
+
+```bash
+npm install react-datekit@latest
+```

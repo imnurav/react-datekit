@@ -1,6 +1,6 @@
+import type { MonthPickerProps } from "../types/internal";
 import { formatMonthName } from "../utils/format";
 import React from "react";
-import type { MonthPickerProps } from "../types/internal";
 
 export const MonthPicker: React.FC<MonthPickerProps> = ({
   viewDate,
