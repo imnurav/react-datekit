@@ -11,9 +11,9 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'NPM distribution tag (e.g. latest, beta)'
+        description: 'NPM distribution tag (e.g. staging, latest, beta)'
         required: true
-        default: 'latest'
+        default: 'staging'
 
 permissions:
   contents: read
@@ -68,7 +68,7 @@ jobs:
         if: steps.check_version.outputs.version_exists == 'false'
         run: |
           cd packages/react-datekit
-          npm publish --tag ${{ github.event.inputs.tag || 'latest' }} --access public
+          npm publish --tag ${{ github.event.inputs.tag || 'staging' }} --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.STAGGING_NPM_KEY }}
 
