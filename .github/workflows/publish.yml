@@ -33,6 +33,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          registry-url: 'https://registry.npmjs.org'
           cache: "pnpm"
 
       - name: Install Dependencies
@@ -62,10 +63,10 @@ jobs:
         if: steps.check_version.outputs.version_exists == 'false'
         run: pnpm build
 
-      - name: Publish Package to NPM (Staged)
+      - name: Publish Package to NPM (Trusted Publishing)
         if: steps.check_version.outputs.version_exists == 'false'
         run: |
           cd packages/react-datekit
-          npm publish --stage --access public
+          npm publish --provenance --access public
 
 
