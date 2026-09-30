@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'packages/react-datekit/**'
   release:
     types: [published]
   workflow_dispatch:
@@ -68,6 +66,7 @@ jobs:
         if: steps.check_version.outputs.version_exists == 'false'
         run: |
           cd packages/react-datekit
+          echo "//registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}" > .npmrc
           npm publish --stage --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.STAGGING_NPM_KEY }}
