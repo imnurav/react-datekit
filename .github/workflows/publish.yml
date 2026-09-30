@@ -1,6 +1,11 @@
 name: Publish Package to NPM
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/react-datekit/**'
   release:
     types: [published]
   workflow_dispatch:
