@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'apps/docs/**'
+      - 'packages/react-datekit/**'
+      - '.github/workflows/deploy.yml'
+      - 'pnpm-lock.yaml'
+      - 'package.json'
   workflow_dispatch:
 
 permissions:
