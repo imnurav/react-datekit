@@ -64,11 +64,11 @@ jobs:
         if: steps.check_version.outputs.version_exists == 'false'
         run: pnpm build
 
-      - name: Publish Package to NPM
+      - name: Publish Package to NPM (Staged)
         if: steps.check_version.outputs.version_exists == 'false'
         run: |
           cd packages/react-datekit
-          npm publish --tag ${{ github.event.inputs.tag || 'staging' }} --access public
+          npm publish --stage --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.STAGGING_NPM_KEY }}
 
